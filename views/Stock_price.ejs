@@ -42,7 +42,7 @@ function myfunction(){
         let price = request.response;
         console.log(price)
         let jsonResponse = JSON.parse(price);
-        document.getElementById("Price").innerText = jsonResponse.price.toFixed(2);
+        document.getElementById("Price").innerText = jsonResponse.price;
     }
     
 
