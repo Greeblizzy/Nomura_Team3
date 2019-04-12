@@ -28,6 +28,15 @@ var ticker = async function (symbol) {
   var price = await stocks.getStockData(symbol)
   return price;
 }
+
+function buyOrSell(type, symbol, quantity, price){
+  var stock = {
+    this.type = type;
+    this.symbol = symbol;
+    this.quantity = quantity;
+    this.price = price;
+  }
+}
 app.get("/testEndpoint", function (req, res) {
   var symbol = req.query.symbol;
   var qty = req.query.qty;
@@ -51,7 +60,7 @@ app.get("/testEndpoint", function (req, res) {
     buyPrice = responseFromIex[0].bidPrice
     sellPrice = responseFromIex[0].askPrice
     
-    
+    this.buyOrSell(type, symbol, quantity, price)
 
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify({price: buyPrice}));
