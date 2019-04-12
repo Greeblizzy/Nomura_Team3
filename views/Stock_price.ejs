@@ -1,7 +1,7 @@
 <% include partials/landing_header %>
         <% include partials/navbar %>
 
-<h1>Stock Price</h1>
+<h1>Stock Buy Price</h1>
 <form id="buy_form"
     autocomplete="on"
     >
@@ -16,8 +16,8 @@
 
 
     <!-- Get the quantity of the stock -->
-    Quantity:<br>
-    <input placeholder="Quantity" type="number" id="Quantity" name="Quantity" min="0"><br>
+    <!--Quantity:<br>
+    <input placeholder="Quantity" type="number" id="Quantity" name="Quantity" min="0"><br>-->
     <!-- Display the price of the stock searched for -->
     Stock Price:<br>
     <p id="Price"></p>
@@ -37,17 +37,18 @@
 function myfunction(){
     var x = document.getElementById("buy_form").elements
     var symbol = document.getElementById("symbol").value
-    var quantity = document.getElementById("Quantity").value
+    //var quantity = document.getElementById("Quantity").value
     // document.getElementById("buy_form").submit("/testEndpoint?" + "symbol="+symbol+  "&qty="+quantity);
     request = new XMLHttpRequest();
-    url = "/testEndpoint?" + "symbol="+symbol+  "&qty="+quantity;
+    url = "/testEndpoint?" + "symbol="+symbol;
     request.type = "json";
     request.open("GET", url);
     request.send();
     request.onload = function(){
         let price = request.response;
-    console.log(price)
-    document.getElementById("Price").innerText = price;
+        console.log(price)
+        let jsonResponse = JSON.parse(price);
+        document.getElementById("Price").innerText = jsonResponse.price;
     }
     
 
