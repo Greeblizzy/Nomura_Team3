@@ -22,12 +22,6 @@
     Stock Price:<br>
     <p id="Price"></p>
 
-    
-    <!-- Output the total value of the stock and quantity -->
-    <output name="x" for="Quantity"></output>
-    <br><br>
-
-    <input type="checkbox" name="Check" value="Yes">Yes I want to purchase.<br>
     <input type="button" onclick="myfunction()"  value="Submit">
     <input type="reset" name="Reset">
 
@@ -50,7 +44,7 @@ function myfunction(){
         price1 = jsonResponse.price;
         price2 = Number(price1);
         final_price = price2 * quantity
-        document.getElementById("Price").innerText = final_price;
+        document.getElementById("Price").innerText = final_price.toFixed(2);
     
     }
     
