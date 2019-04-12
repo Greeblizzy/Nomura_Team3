@@ -3,7 +3,8 @@ var app = express();
 var bodyParser = require("body-parser");
 var request = require("request")
 
-
+var activity = []
+var currStocks = []
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'));
@@ -49,6 +50,8 @@ app.get("/testEndpoint", function (req, res) {
     stockName = responseFromIex[0].symbol
     buyPrice = responseFromIex[0].bidPrice
     sellPrice = responseFromIex[0].askPrice
+    
+    
 
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify({price: buyPrice}));
