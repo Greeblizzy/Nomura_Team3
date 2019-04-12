@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang = "en-US">
+<head>
+<link href="portfolioCSS.css" rel="stylesheet" type="text/css">
+<script type="text/JavaScript" src="app.js"></script>
+<title>My Portfolio</title>
+</head>
+<body onload="getPortfolio()">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<center><h1>My Portfolio</h1></center>
+<center><button type = "button">Buy</button><button type = "button">Sell</button></center>
+<br>
+<table style="width:100%">
+  <tr>
+    <th>Symbol</th>
+    <th>Number of Stocks</th>
+    <th>Value of each stock $$ </th>
+    <th>Total Value $$ </th>
+  </tr>
+</table>
+<table id = "myTable" style="width:100%" >
+</table>
+<script>
+var stock1 = {
+  name: "AAPL",
+  numStocks: 1,
+  buy_price: 400,
+}
+var stock2 = {
+  name: "Demo",
+  numStocks: 2,
+  buy_price: 350,
+}
+var currStocks = [stock1, stock2];
+
+function getPortfolio() {
+  var i;
+  var table = document.getElementById("myTable");
+  for (i = 0; i < currStocks.length; i++){
+    var row = table.insertRow(i);
+    row.insertCell(0).innerHTML = currStocks[i].name;
+    row.insertCell(1).innerHTML = currStocks[i].numStocks;
+    row.insertCell(2).innerHTML = currStocks[i].buy_price;
+    row.insertCell(3).innerHTML = currStocks[i].numStocks * currStocks[i].buy_price;
+  }
+ }
+
+</script>
+
+</body>
+</html>

@@ -14,37 +14,41 @@
             <center><a class="btn btn-default" href="/stock_price">Check Price <a class="btn btn-default" href="/trading">Buy</a>  <a class="btn btn-default" href="/trading">Sell</a> <!--<button type = "button">Buy</button><button type = "button">Sell</button></center>-->
             <br>
             <table style="width:100%">
-              <tr>
-                <th>Symbol</th>
-                <th>Value</th>
-              </tr>
-            </table>
-            <table id = "myTable" style="width:100%" >
-            </table>
-            <script>
-            var stock1 = {
-              name: "AAPL",
-              buy_price: "400",
+            <tr>
+              <th>Symbol </th>
+              <th>Number of Stocks</th>
+              <th>Value of each stock $$ </th>
+              <th>Total Value $$ </th>
+            </tr>
+          </table>
+          <table id = "myTable" style="width:100%" >
+          </table>
+          <script>
+          var stock1 = {
+            name: "AAPL",
+            numStocks: 1,
+            buy_price: 400,
+          }
+          var stock2 = {
+            name: "Demo",
+            numStocks: 2,
+            buy_price: 350,
+          }
+          var currStocks = [stock1, stock2];
+
+          function getPortfolio() {
+            var i;
+            var table = document.getElementById("myTable");
+            for (i = 0; i < currStocks.length; i++){
+              var row = table.insertRow(i);
+              row.insertCell(0).innerHTML = currStocks[i].name;
+              row.insertCell(1).innerHTML = currStocks[i].numStocks;
+              row.insertCell(2).innerHTML = currStocks[i].buy_price;
+              row.insertCell(3).innerHTML = currStocks[i].numStocks * currStocks[i].buy_price;
             }
-            var stock2 = {
-              name: "Demo",
-              buy_price: "350",
-            }
-            var currStocks = [stock1, stock2];
-            
-            function getPortfolio() {
-              var i;
-              var table = document.getElementById("myTable");
-              for (i = 0; i < currStocks.length; i++){
-                console.log(i)
-                var row = table.insertRow(i);
-                row.insertCell(0).innerHTML = currStocks[i].name;
-                row.insertCell(1).innerHTML = currStocks[i].buy_price;
-              }
-             }
-            
-            </script>
-            
-            </body>
-            </html>
-            
+           }
+
+          </script>
+
+          </body>
+          </html>
