@@ -41,21 +41,24 @@ app.get("/testEndpoint", function (req, res) {
     
     } 
    else{
-      console.log(body)
-    }
+  
     stockName = responseFromIex[0].symbol
     buyPrice = responseFromIex[0].bidPrice
     sellPrice = responseFromIex[0].askPrice
+    // var stock = {
+    //   stockName: qty
+    // }
+    console.log(stockName)
 
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify({price: stockPrice}));
+   }
   });
   
 })
 
 app.listen(3000, async function () {
   console.log("Server started on PORT 3000")
-
   // var stock_price = await stocks.getStockData("fb")
   // console.log(stock_price)
 })
