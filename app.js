@@ -20,6 +20,9 @@ app.get("/", function (req, res) {
 app.get("/trading", function (req, res) {
   res.render("trading")
 })
+app.get("/stock_price", function (req, res) {
+  res.render("stock_price")
+})
 var ticker = async function (symbol) {
   var price = await stocks.getStockData(symbol)
   return price;
@@ -48,7 +51,7 @@ app.get("/testEndpoint", function (req, res) {
     sellPrice = responseFromIex[0].askPrice
 
     res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({price: stockPrice}));
+    res.end(JSON.stringify({price: buyPrice}));
   });
   
 })
