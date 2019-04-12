@@ -24,6 +24,9 @@ app.get("/trading", function (req, res) {
 app.get("/stock_price", function (req, res) {
   res.render("stock_price")
 })
+app.get("/sell", function (req, res) {
+  res.render("sell")
+})
 var ticker = async function (symbol) {
   var price = await stocks.getStockData(symbol)
   return price;

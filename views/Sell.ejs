@@ -1,0 +1,57 @@
+<% include partials/landing_header %>
+        <% include partials/navbar %>
+
+<h1>Sell Stocks</h1>
+<form id="buy_form"
+    autocomplete="on"
+    >
+
+    <!-- Get the stock name
+    Stock name:<br>
+    <input placeholder="Stock Name" type="text" id="stock_name" name="stock_name"><br> -->
+    <!-- Get the stock symbol -->
+    Stock Symbol:<br>
+    <input placeholder="Stock Symbol" type="text" id="symbol" name="stock_symbol"><br>
+
+
+
+    <!-- Get the quantity of the stock -->
+    Quantity:<br>
+    <input placeholder="Quantity" type="number" id="Quantity" name="Quantity" min="0"><br>
+    <!-- Display the price of the stock searched for -->
+    Stock Price:<br>
+    <p id="Price"></p>
+
+    <input type="button" onclick="myfunction()"  value="Submit">
+    <input type="reset" name="Reset">
+
+</form>
+
+<script>
+function myfunction(){
+    var x = document.getElementById("buy_form").elements
+    var symbol = document.getElementById("symbol").value
+    var quantity = document.getElementById("Quantity").value
+    // document.getElementById("buy_form").submit("/testEndpoint?" + "symbol="+symbol+  "&qty="+quantity);
+    request = new XMLHttpRequest();
+    url = "/testEndpoint?" + "symbol="+symbol+  "&qty="+quantity;
+    request.type = "json";
+    request.open("GET", url);
+    request.send();
+    request.onload = function(){
+        let price = request.response;
+        let jsonResponse = JSON.parse(price);
+        price1 = jsonResponse.price;
+        price2 = Number(price1);
+        final_price = price2 * quantity
+        document.getElementById("Price").innerText = final_price.toFixed(2);
+    
+    }
+    
+
+}
+</script>
+
+
+</body>
+</html>
