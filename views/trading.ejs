@@ -46,8 +46,12 @@ function myfunction(){
     request.send();
     request.onload = function(){
         let price = request.response;
-    console.log(price)
-    document.getElementById("Price").innerText = price;
+        let jsonResponse = JSON.parse(price);
+        price1 = jsonResponse.price;
+        price2 = Number(price1);
+        final_price = price2 * quantity
+        document.getElementById("Price").innerText = final_price;
+    
     }
     
 
