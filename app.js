@@ -31,10 +31,18 @@ var ticker = async function (symbol) {
 
 function buyOrSell(type, symbol, quantity, price){
   var stock = {
-    this.type = type;
-    this.symbol = symbol;
-    this.quantity = quantity;
-    this.price = price;
+      "type": type,
+      "symbol": symbol,
+      "quantity": quantity,
+      "price": price,
+    }
+  if (type == "buy"){
+    activity.push(stock);
+    currStocks.push(stock)
+  }
+  else if (type == "sell") {
+    activity.push(stock);
+    //TODO: remove the "stock" from currStock
   }
 }
 app.get("/testEndpoint", function (req, res) {
@@ -54,23 +62,27 @@ app.get("/testEndpoint", function (req, res) {
     
     } 
    else{
-      console.log(body)
-    }
+  
     stockName = responseFromIex[0].symbol
     buyPrice = responseFromIex[0].bidPrice
     sellPrice = responseFromIex[0].askPrice
+
+    var type = buy;
+    var quantity = 1;
     
-    this.buyOrSell(type, symbol, quantity, price)
+    this.buyOrSell(type, stockName, quantity, buyPrice)
+
+    
 
     res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({price: buyPrice}));
+    res.end(JSON.stringify({price: stockPrice}));
+   }
   });
   
 })
 
 app.listen(3000, async function () {
   console.log("Server started on PORT 3000")
-
   // var stock_price = await stocks.getStockData("fb")
   // console.log(stock_price)
 })
