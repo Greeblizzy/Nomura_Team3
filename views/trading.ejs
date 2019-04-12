@@ -10,9 +10,8 @@
 <meta charset="UTF-8">
 
 <h1>Purchase Stocks</h1>
-<form id="buy_form" action=""
+<form id="buy_form"
     autocomplete="on"
-    onsubmit="myfunction"
     >
 
     <!-- Get the stock name -->
@@ -20,7 +19,7 @@
     <input placeholder="Stock Name" type="text" id="stock_name" name="stock_name"><br>
     <!-- Get the stock symbol -->
     Stock Symbol:<br>
-    <input placeholder="Stock Symbol" type="text" name="stock_symbol"><br>
+    <input placeholder="Stock Symbol" type="text" id="symbol" name="stock_symbol"><br>
 
 
 
@@ -44,7 +43,13 @@
 function myfunction(){
     var x = document.getElementById("buy_form").elements
     console.log(x);
-    document.getElementById("buy_form").submit();
+    var symbol = document.getElementById("symbol").value
+    var quantity = document.getElementById("Quantity").value
+    // document.getElementById("buy_form").submit("/testEndpoint?" + "symbol="+symbol+  "&qty="+quantity);
+    request = new XMLHttpRequest();
+    url = "/testEndpoint?" + "symbol="+symbol+  "&qty="+quantity;
+    request.open("GET", url);
+    request.send();
 }
 </script>
 
