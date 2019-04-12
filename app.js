@@ -31,6 +31,7 @@ app.get("/testEndpoint", function(req, res){
     name: ticker(symbol),
     // buy_price: ticker(),
     // sell_price: ticker(askPrice)
+    number: 
 }
   console.log(stock.name)
   
