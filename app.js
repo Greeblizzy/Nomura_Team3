@@ -32,7 +32,7 @@ app.get("/testEndpoint", function(req, res){
     // buy_price: ticker(),
     // sell_price: ticker(askPrice)
     number: 
-}
+``}
   console.log(stock.name)
   
 })
