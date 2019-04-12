@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Buy</title>
+<link rel="stylesheet" href="stock_buy.css">
+</head>
+<body>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+
+<h1>Purchase Stocks</h1>
+<form id="buy_form" action=""
+    autocomplete="on"
+    onsubmit="myfunction"
+    >
+
+    <!-- Get the stock name -->
+    Stock name:<br>
+    <input placeholder="Stock Name" type="text" id="stock_name" name="stock_name"><br>
+    <!-- Get the stock symbol -->
+    Stock Symbol:<br>
+    <input placeholder="Stock Symbol" type="text" name="stock_symbol"><br>
+
+
+
+    <!-- Get the quantity of the stock -->
+    Quantity:<br>
+    <input placeholder="Quantity" type="number" id="Quantity" name="Quantity" min="0"><br>
+    <!-- Display the price of the stock searched for -->
+    Stock Price:<br>
+    
+    <!-- Output the total value of the stock and quantity -->
+    <output name="x" for="Quantity"></output>
+    <br><br>
+
+    <input type="checkbox" name="Check" value="Yes">Yes I want to purchase.<br>
+    <input type="button" onclick="myfunction()" value="Submit" formaction="Front_Page.html">
+    <input type="reset" name="Reset">
+
+</form>
+
+<script>
+function myfunction(){
+    var x = document.getElementById("buy_form").elements
+    console.log(x);
+    document.getElementById("buy_form").submit();
+}
+</script>
+
+
+</body>
+</html>
