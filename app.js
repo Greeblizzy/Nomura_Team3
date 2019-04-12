@@ -49,18 +49,13 @@ app.get("/testEndpoint", function (req, res) {
     stockName = responseFromIex[0].symbol
     buyPrice = responseFromIex[0].bidPrice
     sellPrice = responseFromIex[0].askPrice
-<<<<<<< HEAD
     // var stock = {
     //   stockName: qty
     // }
     console.log(stockName)
-=======
-    
-    
->>>>>>> ffa3c0e1aea9a98a51a2e285c9e7521f69759e6a
 
     res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({price: stockPrice}));
+    res.end(JSON.stringify({price: buyPrice}));
    }
   });
   
